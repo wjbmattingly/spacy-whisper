@@ -40,6 +40,12 @@ class SpacyWhisper:
             self.nlp = spacy.blank(lang)
         self.word_level = word_level
 
+    def entity_assigner(self, doc):
+        for ent in doc.ents:
+            ent._.start_time = doc[ent.start]._.start_time
+            ent._.end_time = doc[ent.end]._.end_time
+        return doc
+
     def sent_assigner(self, doc):
         for sent in doc.sents:
             start = sent[0]._.start_time
@@ -119,6 +125,7 @@ class SpacyWhisper:
                     whisper_pointer += 1
         doc = self.sent_assigner(doc)
         doc = self.doc_timestamp(doc)
+        doc = self.entity_assigner(doc)
         return doc
 
     def create_doc(self, whisper_output):
