@@ -1,6 +1,7 @@
 # spaCy Whisper
 
-## Introduction
+![spacy Whisper logo](./images/spacy_whisper.jpeg)
+
 
 spaCy Whisper is a Python package designed to integrate Whisper transcriptions with the natural language processing (NLP) capabilities of spaCy. It allows users to process and analyze Whisper transcribed text with the powerful tools offered by spaCy, including tokenization, entity recognition, part-of-speech tagging, and more.
 
